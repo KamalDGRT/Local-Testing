@@ -5,6 +5,11 @@
   padding-bottom:10px;
 }
 
+.container
+{
+  margin-left: 0px;
+  margin-right: 0px;
+}
 body
 {
   background-color: #fff;
