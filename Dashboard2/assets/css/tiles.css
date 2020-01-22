@@ -1,0 +1,31 @@
+.all_tiles
+{
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+}
+.tile {
+  display: block;
+  padding: 4px;
+  margin: 5px 5px 5px 5px;
+  line-height: 1.42857143;
+  background-color: #eefe;
+  border: 1px solid #111;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+}
+
+
+@media (min-width: 1024px) {
+  .tile{
+      height: 250px;
+  }
+}
+
+@media (min-width:400px) {
+    .tile{
+        height: 60px;
+    }
+}
