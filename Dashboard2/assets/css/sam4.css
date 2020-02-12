@@ -12,8 +12,8 @@
 
 .content {
     position:absolute;
-    height:90%; /* = 100% - 2*5% padding */
-    width:90%; /* = 100% - 2*5% padding */
+    height:100%; /* = 100% - 2*5% padding */
+    width:100%; /* = 100% - 2*5% padding */
     padding: 5%;
     font-size: xx-large;
     font-weight: bold;
@@ -117,7 +117,7 @@ p{
     background:#ECECEC;
     border:1px solid #fff;
 }
-.container
+.container12
 {
     padding-left: 5%;
     padding-right: 1%;

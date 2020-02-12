@@ -5,6 +5,7 @@
     display: table-cell;
     vertical-align: top;
     color: #fff;
+    width: 100%;
   }
 
   .menu {
@@ -116,16 +117,16 @@
   }
 
   #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 200px;
   }
 
   #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 200px;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -200px;
     overflow-y: auto;
     background: #000;
     -webkit-transition: all 0.5s ease;

@@ -18,6 +18,7 @@ body
 #d_container {
   display: table;
   border-radius: 4px;
+  margin: 0px;
 }
 
 .h_pad
