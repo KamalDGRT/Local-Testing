@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/b_dashboard.css">
+    <link rel="stylesheet" href="assets/css/sam4.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <div id="sidebar-wrapper">
+      <div id="d_container">
+        <div id="sideMenu">
+
+          <h6  class="dashboard"><i>Dashboard</i></h6>
+
+          <ul class="menu">
+            <li>Name</li>
+            <li>Logout</li>
+          </ul>
+
+          <ul class="menu">
+            <li>Heading 1</li>
+            <li>Sub Entry 1</li>
+            <li>Sub Entry 2</li>
+            <li>Sub Entry 3</li>
+          </ul>
+
+          <ul class="menu">
+            <li>Heading 2</li>
+            <li>Sub Entry 1</li>
+            <li>Sub Entry 2</li>
+            <li>Sub Entry 3</li>
+          </ul>
+
+          <ul class="menu">
+            <li>Heading 3</li>
+            <li>Sub Entry 1</li>
+            <li>Sub Entry 2</li>
+            <li>Sub Entry 3</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="page-content-wrapper">
+      <div class="container-fluid">
+
+        <div class="row col-xl-12 navbar navbar-fixed-top container">
+          <div class="row col-xl-4">
+             <a class="btn btn-link btn-lg" role="button" id="menu-toggle" href="#menu-toggle"> <!-- This id is used in js file -->
+                <i class="fa fa-bars"></i>
+             </a>
+             <a class="navbar-brand text-left" href="index.php">Sidebar</a>
+          </div>
+        </div>
+        <h3 class="text-center"> KMPL INPUT for : <?php echo today_date(); ?> </h3><br><br>
+        <div class="row col-xl-12">
+
+             <br><br>
+
+            <form class="custom-form" method="post" action="input_kmpl_2.php">
+
+                <?php
+                    $r1=fetchFrom("fleet_m",$_SESSION['fl_id']);
+                    $flno=$r1['fleet'];
+                    $fid=fetchID($flno);
+                    $r2=fetchFrom("opt_kms",$fid);    
+                    print_r($r1);     
+                    print_r($r2);     
+                ?>                  
+                <h4><u>Fleet Details :</u></h4>
+
+                <div class="container">
+                <div class="form-row form-group">
+                    <div class="col-xl-2 label-column">
+                        <label class="col-form-label" for="fleet_number">Fleet Number : </label>
+                    </div>
+                    <div class="col-xl-1 input-column">
+                        <input class="form-control" type="text" name="fleet_number" value="<?php echo $r1['fleet'];?>" disabled="disabled">
+                    </div>
+                    <div class="col-xl-1 label-column">
+                        <label class="col-form-label" for="make"> Make : </label>
+                    </div>
+                    <div class="col-xl-1 input-column">
+                        <input class="form-control phpvalue" type="text" name="make" value="<?php echo $r1['make'];?>" disabled="disabled">
+                    </div>                    
+                    <div class="col-xl-1 label-column">
+                        <label class="col-form-label" for="model">Model : </label>
+                    </div>
+                    <div class="col-xl-1 input-column">
+                        <input class="form-control" type="text" name="model" value="<?php echo $r1['type'];?>" disabled="disabled">
+                    </div>
+                    <div class="col-xl-2 label-column">
+                        <label class="col-form-label" for="reg_no"> Registration Number : </label>
+                    </div>
+                    <div class="col-xl-2 input-column">
+                        <input class="form-control" type="text" name="reg_no" value="<?php echo $r1['reg_no'];?>" readonly="readonly">
+                    </div>
+                </div>
+                </div>
+                <br><br><hr><br>
+                
+                <h4><u>Kilometers :</u></h4>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="schd_km">Scheduled Kilometers : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input id="km_1" class="form-control" type="number" name="schd_km" value="<?php echo $r2['scheduled_km'];?>" readonly="readonly">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="optd_km">Operated Kilometers : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input id="km_2" class="form-control" type="number" name="optd_km" value="<?php echo $r2['operated_km'];?>" readonly="readonly">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="dead_kms"> <h5>Dead Kilometers :</h5> </label>
+                    </div>
+                </div>
+                
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-4 label-column">
+                        <label class="col-form-label" for="d_fixed"> Fixed : </label>
+                    </div>
+                    <div class="col-xl-5 input-column">
+                        <input id="km_3" class="form-control" type="number" name="d_fixed" value="0">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-4 label-column">
+                        <label class="col-form-label" for="d_variable"> Variable : </label>
+                    </div>
+                    <div class="col-xl-5 input-column">
+                        <input id="km_4" class="form-control" type="number" name="d_variable" value="0">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-4 label-column">
+                        <label class="col-form-label" for="d_others"> Others : </label>
+                    </div>
+                    <div class="col-xl-5 input-column">
+                        <input id="km_5" class="form-control" type="number" name="d_others" value="0">
+                    </div>
+                </div>
+                <br>
+            
+                <h4><u>Fuel : </u></h4>
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="hsd"> High Speed Diesel : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input class="form-control" type="number" name="hsd">
+                    </div>
+                </div>
+                <br><hr><br>
+
+                <h4><u>Oil Top-ups</u></h4>
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="oil_eng"> Engine Oil Top-up : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input class="form-control" type="number" name="oil_eng">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="oil_gear"> Gear Oil Top-up : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input class="form-control" type="number" name="oil_gear">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="oil_clutch"> Clutch Oil Top-up : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input class="form-control" type="number" name="oil_clutch">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="oil_grown"> Grown Oil Top-up : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input class="form-control" type="number" name="oil_grown">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="oil_coolant"> Coolant Oil Top-up : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input class="form-control" type="number" name="oil_coolant">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-xl-6 label-column">
+                        <label class="col-form-label" for="add_blue"> Add Blue : </label>
+                    </div>
+                    <div class="col-xl-6 input-column">
+                        <input class="form-control" type="number" name="add_blue">
+                    </div>
+                </div>
+                <br>
+
+                
+                <div class="form-row form-group">
+                    <div class="col-xl-2"></div>
+                    <div class="col-xl-7 input-column">
+                        <input class="form-control kmpl_next_btn" type="submit" name="input_kmpl_2_btn" value="Next">
+                    </div>
+                </div>
+
+            </form>
+        
+        </div>
+      
+    </div>
+    </div>
+
+  </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/b_dashboard.js"></script>
+    </body>
+
+</html>

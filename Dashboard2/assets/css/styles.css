@@ -39,3 +39,8 @@ span
    color: red;
    font-size: 30px;
 }
+
+.container-fluid
+{
+  color: black;
+}
