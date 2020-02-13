@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/b_dashboard.css">
+    <link rel="stylesheet" href="assets/css/sam4.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <div id="sidebar-wrapper">
+      <div id="d_container">
+        <div id="sideMenu">
+
+          <h6  class="dashboard"><i>Dashboard</i></h6>
+
+          <ul class="menu">
+            <li>Name</li>
+            <li>Logout</li>
+          </ul>
+
+          <ul class="menu">
+            <li>KMPL</li>
+            <li>Add</li>
+            <li>View</li>
+            <li>Modify</li>
+          </ul>
+
+          <ul class="menu">
+            <li>Shedown</li>
+            <li>Sub Entry 1</li>
+            <li>Sub Entry 2</li>
+            <li>Sub Entry 3</li>
+          </ul>
+
+          <ul class="menu">
+            <li>Tyre</li>
+            <li>Sub Entry 1</li>
+            <li>Sub Entry 2</li>
+            <li>Sub Entry 3</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="page-content-wrapper">
+      <div class="container-fluid">
+
+        <div class="row col-md-12 navbar navbar-fixed-top container">
+          <div class="row col-md-4">
+             <a class="btn btn-link btn-lg" role="button" id="menu-toggle" href="#menu-toggle"> <!-- This id is used in js file -->
+                <i class="fa fa-bars"></i>
+             </a>
+             <a class="navbar-brand text-left" href="index.php">Sidebar</a>
+          </div>
+        </div>
+
+        <div class="row col-md-12">
+       <h3 class="text-center"> ShedDown INPUT</h3> <br><br>
+
+    <div class="row register-form">
+        <div class="col-md-8 offset-md-2">
+
+            <form class="custom-form" method="post" action="input_sd.php">
+                <div class="form-row form-group text-right">
+                    <div class="col-sm-3 label-column">
+                        <label class="col-form-label" for="fleet_number">Fleet Number : </label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input class="form-control" type="text" name="fleet_number">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-sm-3 label-column">
+                        <label class="col-form-label" for="held_at">Held At : </label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <select class="form-control">
+                            <option name ="held_at" value="AD-FC">AD-FC</option>
+                            <option name ="held_at" value="KN-FC">KN-FC</option>
+                            <option name ="held_at" value="CR-FC">CR-FC</option>
+                            <option name ="held_at" value="DEPOT">DEPOT</option>
+                            <option name ="held_at" value="MTCW">MTCW</option>
+                            <option name ="held_at" value="PRD">PRD</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-sm-3 label-column">
+                        <label class="col-form-label" for="reason">Reason :</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <select class="form-control">
+                           <option name ="reason" value="FC">FC</option>
+                           <option name ="reason" value="Acc. Repair">Acc. Repair</option>
+                           <option name ="reason" value="SD">SD</option>
+                           <option name ="reason" value="CH-III">CH-III</option>
+                           <option name ="reason" value="HFC">HFC</option>
+                        </select>   
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-sm-3 label-column">
+                        <label class="col-form-label" for="work_to_be_carried_out">Work to be carried Out : </label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input class="form-control" type="text" name="work_to_be_carried_out">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-row form-group text-right">
+                    <div class="col-sm-3 label-column">
+                        <label class="col-form-label" for="want_of_rc_itmes">Want of RC Items : </label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input class="form-control" type="text" name="want_of_rc_items">
+                    </div>
+                </div>
+
+                <br>
+                
+                <div class="form-row form-group text-right">
+                    <div class="col-sm-3 label-column">
+                        <label class="col-form-label" for="want_of_spares">Want of Spares : </label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input class="form-control" type="text" name="want_of_spares">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-row form-group">
+                    <div class="col-sm-10 input-column">
+                        <input class="form-control" type="submit" style="background-color: cornflowerblue;" name="sd_add_btn" value="Submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/b_dashboard.js"></script>
+    </body>
+
+</html>
