@@ -1,3 +1,11 @@
 .borderit{
     border:1px solid black;
 }
+
+.rm-border-left{
+    border-left: none;
+}
+
+.rm-border-top{
+    border-top: none;
+}
