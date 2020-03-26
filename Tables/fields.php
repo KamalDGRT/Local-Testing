@@ -1,3 +1,53 @@
+<?php 
+
+function field($fsize,$fclass,$fieldname,$vsize,$vclass,$fieldvalue)
+{
+    $content  =	 "<div class=\"col-md-$fsize col-sm-4 $fclass\">";
+    $content .=  "$fieldname";
+    $content .=	 "</div>";
+    $content .=	 "<div class=\"col-md-$vsize col-sm-8 $vclass\">";
+    $content .=  "$fieldvalue";
+    $content .=	 "</div>";
+    return $content;
+}
+function field_1($rc,$fsize,$fclass,$fieldname,$vsize,$vclass,$fieldvalue)	
+{
+    $content  =  "<div class=\"row $rc\">";
+    $content .= field($fsize,$fclass,$fieldname,$vsize,$vclass,$fieldvalue);    
+    $content .=	"</div>";
+    echo $content;
+}
+
+function field_2($rc,$f1size,$v1size,$f2size,$v2size,$f1class,$f2class,$v1class,$v2class,$f1,$v1,$f2,$v2)	
+{
+    $content  =  "<div class=\"row $rc\">";
+    $content .= "\n";
+    $content .= field($f1size,$f1class,$f1,$v1size,$v1class,$v1);
+    $content .= "\n";
+    $content .= field($f2size,$f2class,$f2,$v2size,$v2class,$v2);
+    $content .= "\n";
+    $content .=	"</div>";
+    echo $content;
+}
+
+function field_3($rc,$f1size,$v1size,$f2size,$v2size,$f3size,$v3size,$f1class,$f2class,$f3class,$v1class,$v2class,$v3class,$f1,$v1,$f2,$v2,$f3,$v3)	
+{
+    $content  =  "<div class=\"row $rc\">";
+    $content .= "\n";
+    $content .= field($f1size,$f1class,$f1,$v1size,$v1class,$v1);
+    $content .= "\n";
+    $content .= field($f2size,$f2class,$f2,$v2size,$v2class,$v2);
+    $content .= "\n";
+    $content .= field($f3size,$f3class,$f3,$v3size,$v3class,$v3);    
+    $content .= "\n";
+    $content .=	"</div>";
+    echo $content;
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +59,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="page-top">
@@ -36,8 +87,10 @@
                         id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
+
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
+
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
                             id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
@@ -188,10 +241,60 @@
                         </ul>
                     </div>
                 </nav>
+
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Blank Page</h3>
+                    <h3 class="text-dark mb-1">Blank Page</h3><br>
+
+                    <h6 class="text-dark mb-1">[col-md-6 col-sm-4] , [col-md-6 col-sm-8]</h6>
+
+                    <?php field_1("","6","borderit","Rfield1","6","borderit","rvalue1")?><br>
+                    
+                    <h6 class="text-dark mb-1">[col-md-5 col-sm-4] , [col-md-7 col-sm-8]</h6>
+                    <?php field_1("","5","borderit","Field1","7","borderit","Value1")?><br>
+                    
+                    <h6 class="text-dark mb-1">[col-sm-4] , [col-sm-8]</h6>
+                    <?php field_1("","4","borderit","Field1","8","borderit","Value1")?><br>
+
+                    <h6 class="text-dark mb-1">[col-md-3 col-sm-4] , [col-md-9 col-sm-8]</h6>
+                    <?php field_1("","3","borderit","Field2","9","borderit","Value2")?><br>
+
+                    <h6 class="text-dark mb-1">[col-md-2 col-sm-4] , [col-md-10 col-sm-8]</h6>
+                    <?php field_1("","2","borderit","Field2","10","borderit","Value2")?><br>
+
+                    <h6 class="text-dark mb-1">[col-md-1 col-sm-4] , [col-md-11 col-sm-8]</h6>
+                    <?php field_1("",1,"borderit","Field3",11,"borderit",123)?><br>
+
+
+                    <h6 class="text-dark mb-1">{ [col-md-5 col-sm-4] , [col-md-1 col-sm-8] x 2] }</h6>
+                    
+                    <?php field_2("",5,1,5,1,"borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2") ?><br>
+                    
+                    <h6 class="text-dark mb-1">{ [col-md-4 col-sm-4] , [col-md-2 col-sm-8] x 2 }</h6>
+                    <?php field_2("",4,2,4,2,"borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2") ?><br>
+                    
+                    <h6 class="text-dark mb-1">{ [col-md-3 col-sm-4] , [col-md-3 col-sm-8] x 2 }</h6>
+                    <?php field_2("",3,3,3,3,"borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2") ?><br>
+                    
+                    <h6 class="text-dark mb-1">{ [col-md-2 col-sm-4] , [col-md-4 col-sm-8] x 2 }</h6>
+                    <?php field_2("",2,4,2,4,"borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2") ?><br>
+                    
+                    <h6 class="text-dark mb-1">{ [col-md-1 col-sm-4] , [col-md-5 col-sm-8] x 2 }</h6>
+                    <?php field_2("",1,5,1,5,"borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2") ?><br>
+                    
+                    <h6 class="text-dark mb-1">{ [col-lg-3 col-md-3 col-sm-4] , [col-lg-1 col-md-9 col-sm-8] x 3 }</h6>
+                    <?php field_3("",3,1,3,1,3,1,"borderit","borderit","borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2","Field3","Value3") ?><br>
+                    
+                    <h6 class="text-dark mb-1">{ [col-lg-2 col-md-3 col-sm-4] , [col-lg-2 col-md-9 col-sm-8] x 3 }</h6>
+                    <?php field_3("",2,2,2,2,2,2,"borderit","borderit","borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2","Field3","Value3") ?><br>
+                    
+                    <h6 class="text-dark mb-1">{ [col-lg-1 col-md-3 col-sm-4] , [col-lg-3 col-md-9 col-sm-8] x 3 }</h6>
+                    <?php field_3("",1,3,1,3,1,3,"borderit","borderit","borderit","borderit","borderit","borderit","Field1","Value1","Field2","Value2","Field3","Value3") ?><br>
+
                 </div>
+
+
             </div>
+
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © MTC 2020</span></div>
@@ -199,11 +302,12 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/chart.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
 
